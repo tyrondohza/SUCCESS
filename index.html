@@ -57,21 +57,59 @@
               <span></span>
             </div>
             <div class="card-heart">♥</div>
-            <div class="badge">For My Favorite Person</div>
 
-            <h1>Good Luck in Your Exams, HABIBI</h1>
-            <p class="subtitle">
-              You are capable, brave, and beautifully prepared for this moment, HABIBI.
-            </p>
+            <div class="greeting-shell">
+              <div class="ribbon">For My Favorite Person</div>
+              <div class="lock-wrap" aria-label="open the message">
+                <span class="lock-heart">♥</span>
+              </div>
+              <p class="greeting-kicker">A little love note is waiting</p>
+              <h1>Hello, HABIBI</h1>
+              <p class="subtitle">
+                Open the card and let my heart speak to yours.
+              </p>
+              <button class="open-card-btn" type="button" aria-label="Open the card">
+                Open Card
+              </button>
+            </div>
+          </article>
 
-            <div class="heart-line" aria-label="love decoration">♥ ♥ ♥</div>
+          <article class="card-face card-back">
+            <div class="back-glow"></div>
+            <div class="badge badge-back">HABIBI • Forever</div>
 
-            <blockquote class="quote-block">
-              “No matter how hard the road gets, I will always believe in you, HABIBI —
-              because your heart is strong, your mind is brilliant, and your spirit is unforgettable.”
-            </blockquote>
+            <div class="love-reveal">
+              <div class="romantic-tag">To My Favorite Person</div>
+              <h1>My Heart Speaks to You, HABIBI</h1>
+              <p class="subtitle romantic-subtitle">
+                Your smile is my peace, your love is my strength, and your soul makes every day brighter.
+              </p>
 
-            <section class="message encouraging">
+              <div class="heart-line" aria-label="love decoration">♥ ♥ ♥</div>
+
+              <blockquote class="quote-block romantic-quote">
+                “You are the calm in my chaos, the light in my quiet, and the softest part of my heart, HABIBI.”
+              </blockquote>
+
+              <section class="message love">
+                <h2>My Promise to You</h2>
+                <p>
+                  HABIBI, I like you more than I can say. Your smile makes my day softer,
+                  your kindness makes my heart feel safe, and your strength inspires me every day.
+                  I hope you know how deeply you are loved and how proud I am of the amazing person you are.
+                  I choose you, in every quiet moment and every bright one.
+                </p>
+              </section>
+
+              <div class="closing romantic-closing">
+                <p>Forever, with all my love.</p>
+                <span>Always yours, HABIBI</span>
+              </div>
+
+              <div class="hidden-love-line">I’m so lucky to know you, HABIBI.</div>
+            </div>
+
+            <div class="message-shell">
               <h2>Encouraging Words</h2>
               <p>
                 HABIBI, I know your exams may feel heavy and overwhelming right now,
@@ -82,33 +120,103 @@
                 and do your best with calm confidence. No matter how the results turn out,
                 I will always be proud of your courage and dedication.
               </p>
-            </section>
-
-            <div class="closing">
-              <p>You’ve got this, HABIBI, beautiful.</p>
-              <span>With all my love and endless support.</span>
+              <div class="final-love-message">I choose you, every day, HABIBI.</div>
+              <div class="back-signature">With all my love, forever.</div>
             </div>
-
-            <div class="hidden-love-line">I’m so lucky to know you, HABIBI.</div>
-          </article>
-
-          <article class="card-face card-back">
-            <div class="back-glow"></div>
-            <div class="badge badge-back">HABIBI • Forever</div>
-            <h2>My Heart Speaks</h2>
-            <p>
-              HABIBI, I like you more than I can say. Your smile makes my day softer,
-              your kindness makes my heart feel safe, and your strength inspires me every day.
-              I hope you know how deeply you are loved and how proud I am of the amazing person you are.
-            </p>
-            <div class="final-love-message">I choose you, every day, HABIBI.</div>
-            <div class="back-signature">With all my love, forever.</div>
           </article>
         </div>
       </div>
     </div>
 
     <div class="burst-layer" aria-hidden="true"></div>
+
+    <div class="love-jar-wrap">
+      <button class="love-jar" type="button" aria-label="Open the love jar">
+        <span class="jar-lid"></span>
+        <span class="jar-body">
+          <span class="jar-heart">♥</span>
+          <span class="jar-label">Love Jar</span>
+        </span>
+      </button>
+      <div class="compliment-box" aria-live="polite">
+        <span class="compliment-text">Tap the jar for a little love.</span>
+      </div>
+    </div>
+
+    <div class="date-planner" aria-label="Date planner">
+      <div class="date-header">Our Date After the Exams</div>
+      <div class="date-grid">
+        <label class="date-field">
+          <span>Day</span>
+          <input id="dateDay" type="text" inputmode="numeric" maxlength="2" placeholder="Choose a day" aria-label="Choose a day" />
+        </label>
+
+        <label class="date-field">
+          <span>Month</span>
+          <input id="dateMonth" type="text" maxlength="20" placeholder="Choose a month" aria-label="Choose a month" />
+        </label>
+
+        <label class="date-field">
+          <span>Area</span>
+          <input id="dateArea" type="text" maxlength="40" placeholder="Type a place" aria-label="Type a place" />
+        </label>
+      </div>
+
+      <div class="date-preview" id="datePreview">
+        We’ll choose our perfect date together soon.
+      </div>
+
+      <button class="save-date-btn" id="saveDateButton" type="button">
+        Save this date
+      </button>
+
+      <div class="saved-date-summary" id="savedDateSummary" aria-live="polite">
+        <span class="saved-date-label">Saved plan</span>
+        <strong class="saved-date-value">No date saved yet</strong>
+      </div>
+    </div>
+
+    <div class="save-date-card" id="saveDateCard" aria-live="polite">
+      <div class="heart-calendar" aria-hidden="true">
+        <div class="calendar-content">
+          <span class="calendar-month" id="calendarMonth">June</span>
+          <span class="calendar-day" id="calendarDay">24</span>
+        </div>
+      </div>
+
+      <div class="save-date-badge">Save the Date</div>
+      <div class="save-date-title">Our little celebration after the exams</div>
+
+      <div class="save-date-grid">
+        <div class="save-date-item">
+          <span>When</span>
+          <strong id="saveDateValue">24 June</strong>
+        </div>
+        <div class="save-date-item">
+          <span>Where</span>
+          <strong id="savePlaceValue">City Centre</strong>
+        </div>
+      </div>
+
+      <div class="countdown-row" aria-label="Countdown to the date">
+        <div class="countdown-box">
+          <span id="countdownDays">00</span>
+          <small>Days</small>
+        </div>
+        <div class="countdown-box">
+          <span id="countdownHours">00</span>
+          <small>Hours</small>
+        </div>
+        <div class="countdown-box">
+          <span id="countdownMinutes">00</span>
+          <small>Minutes</small>
+        </div>
+        <div class="countdown-box">
+          <span id="countdownSeconds">00</span>
+          <small>Seconds</small>
+        </div>
+      </div>
+    </div>
 
     <div class="controls-row">
       <button class="flip-btn" type="button" aria-label="Reveal the love note">

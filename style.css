@@ -1043,6 +1043,41 @@ h1 {
   box-shadow: 0 22px 35px rgba(255, 123, 184, 0.22);
 }
 
+.share-date-btn {
+  align-self: center;
+  min-height: 44px;
+  border: 1px solid rgba(247, 217, 138, 0.42);
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.share-date-btn:not(:disabled):hover,
+.share-date-btn:not(:disabled):focus-visible {
+  transform: translateY(-1px);
+  background: rgba(247, 217, 138, 0.14);
+}
+
+.share-date-btn:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.share-date-status {
+  min-height: 1.2em;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .saved-date-summary {
   display: flex;
   flex-direction: column;

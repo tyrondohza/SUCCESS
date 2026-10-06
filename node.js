@@ -45,6 +45,8 @@ const savePlaceValue = document.getElementById('savePlaceValue');
 const saveDateButton = document.getElementById('saveDateButton');
 const savedDateSummary = document.getElementById('savedDateSummary');
 const savedDateValue = document.querySelector('.saved-date-value');
+const shareDateButton = document.getElementById('shareDateButton');
+const shareDateStatus = document.getElementById('shareDateStatus');
 const saveDateCard = document.getElementById('saveDateCard');
 const calendarMonth = document.getElementById('calendarMonth');
 const calendarDay = document.getElementById('calendarDay');
@@ -363,6 +365,7 @@ const saveDatePlan = () => {
   const savedPlan = { day, month, area };
   localStorage.setItem('loveDatePlan', JSON.stringify(savedPlan));
   renderSavedDate(day, month, area);
+  if (shareDateButton) shareDateButton.disabled = false;
 
   if (savedDateSummary) {
     savedDateSummary.classList.remove('is-saved');
@@ -371,6 +374,50 @@ const saveDatePlan = () => {
     window.setTimeout(() => savedDateSummary.classList.remove('is-saved'), 600);
   }
 };
+
+const shareSavedDatePlan = async () => {
+  let savedPlan;
+
+  try {
+    savedPlan = JSON.parse(localStorage.getItem('loveDatePlan') || 'null');
+  } catch (error) {
+    savedPlan = null;
+  }
+
+  if (!savedPlan || (!savedPlan.day && !savedPlan.month && !savedPlan.area)) {
+    if (shareDateStatus) shareDateStatus.textContent = 'Save a date before sharing it.';
+    return;
+  }
+
+  const when = [savedPlan.day, savedPlan.month].filter(Boolean).join(' ');
+  const message = [
+    'HABIBI picked our date after the exams!',
+    when ? `When: ${when}` : '',
+    savedPlan.area ? `Where: ${savedPlan.area}` : ''
+  ].filter(Boolean).join('\n');
+
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: 'Our date after the exams', text: message });
+      if (shareDateStatus) shareDateStatus.textContent = 'Your date plan has been shared.';
+      return;
+    }
+
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(message);
+      if (shareDateStatus) shareDateStatus.textContent = 'Plan copied. Paste it into a message to send it.';
+      return;
+    }
+  } catch (error) {
+    if (error.name === 'AbortError') return;
+  }
+
+  window.prompt('Copy this date plan and send it to him:', message);
+};
+
+if (shareDateButton) {
+  shareDateButton.addEventListener('click', shareSavedDatePlan);
+}
 
 const restoreSavedDate = () => {
   try {
@@ -386,6 +433,9 @@ const restoreSavedDate = () => {
 
     updateSaveDateCard();
     renderSavedDate(savedPlan.day, savedPlan.month, savedPlan.area);
+    if (shareDateButton && (savedPlan.day || savedPlan.month || savedPlan.area)) {
+      shareDateButton.disabled = false;
+    }
   } catch (error) {
     // Ignore invalid saved data.
   }

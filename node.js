@@ -193,7 +193,7 @@ themeButtons.forEach((button) => {
 if (soundButton) {
   soundButton.addEventListener('click', () => {
     isSoundOn = !isSoundOn;
-    soundButton.textContent = isSoundOn ? '♡ Sound On' : '♡ Sound Off';
+    soundButton.textContent = isSoundOn ? '♡ Effects On' : '♡ Effects Off';
     soundButton.classList.toggle('is-muted', !isSoundOn);
     soundButton.setAttribute('aria-pressed', String(isSoundOn));
   });

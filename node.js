@@ -33,6 +33,8 @@ const flipButton = document.querySelector('.flip-btn');
 const openCardButton = document.querySelector('.open-card-btn');
 const burstLayer = document.querySelector('.burst-layer');
 const soundButton = document.querySelector('.sound-btn');
+const backgroundMusic = document.getElementById('backgroundMusic');
+const musicPlayerStatus = document.getElementById('musicPlayerStatus');
 const greetingShell = document.querySelector('.greeting-shell');
 const loveJar = document.querySelector('.love-jar');
 const complimentText = document.querySelector('.compliment-text');
@@ -67,6 +69,14 @@ const compliments = [
 ];
 
 let isSoundOn = true;
+
+if (backgroundMusic) {
+  backgroundMusic.play().catch(() => {
+    if (musicPlayerStatus) {
+      musicPlayerStatus.textContent = 'Press play to start the music';
+    }
+  });
+}
 
 const createBurst = () => {
   if (!burstLayer) return;

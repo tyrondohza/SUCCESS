@@ -70,11 +70,12 @@ const compliments = [
 
 let isSoundOn = true;
 
-if (backgroundMusic) {
-  backgroundMusic.play().catch(() => {
-    if (musicPlayerStatus) {
-      musicPlayerStatus.textContent = 'Press play to start the music';
-    }
+if (backgroundMusic && musicPlayerStatus) {
+  backgroundMusic.addEventListener('playing', () => {
+    musicPlayerStatus.textContent = 'Now playing as you read';
+  });
+  backgroundMusic.addEventListener('pause', () => {
+    musicPlayerStatus.textContent = 'Music paused';
   });
 }
 
@@ -217,6 +218,14 @@ if (card) {
 
     if (greetingShell) {
       greetingShell.classList.toggle('is-hidden', isOpening);
+    }
+
+    if (isOpening && backgroundMusic) {
+      backgroundMusic.play().catch(() => {
+        if (musicPlayerStatus) {
+          musicPlayerStatus.textContent = 'Tap play to start the music';
+        }
+      });
     }
 
     createBurst();

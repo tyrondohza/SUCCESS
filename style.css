@@ -531,6 +531,41 @@ body::before {
 .card-sparkles span:nth-child(9) { bottom: 32%; right: 28%; animation-delay: 0.5s; }
 .card-sparkles span:nth-child(10) { top: 72%; left: 44%; animation-delay: 1.6s; }
 
+.cover-flowers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cover-flower,
+.cover-flower-heart {
+  position: absolute;
+  line-height: 1;
+  text-shadow: 0 0 16px currentColor;
+  animation: flowerSway 4s ease-in-out infinite alternate;
+}
+
+.cover-flower {
+  color: var(--rose);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.flower-one { top: 10%; left: 10%; }
+.flower-two { top: 17%; right: 11%; color: var(--gold); animation-delay: 0.8s; }
+.flower-three { top: 46%; left: 5%; color: var(--purple); animation-delay: 1.2s; }
+.flower-four { top: 49%; right: 6%; color: var(--rose-deep); animation-delay: 0.4s; }
+.flower-five { bottom: 12%; left: 14%; color: var(--gold); animation-delay: 1.5s; }
+.flower-six { bottom: 10%; right: 13%; animation-delay: 0.6s; }
+
+.cover-flower-heart {
+  top: 23%;
+  left: 20%;
+  color: var(--rose-deep);
+  font-size: 1.3rem;
+  animation-delay: 1s;
+}
+
 .burst-layer {
   position: fixed;
   inset: 0;
@@ -554,6 +589,29 @@ body::before {
 
 .card-front {
   transform: rotateY(0deg);
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(255, 123, 184, 0.11), transparent 44%),
+    linear-gradient(135deg, var(--card-bg), var(--card-shade));
+}
+
+.card-front .greeting-shell {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.card-front .greeting-shell h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  letter-spacing: 0.07em;
+}
+
+.card-front .card-heart {
+  position: absolute;
+  right: 8%;
+  bottom: 8%;
+  color: rgba(255, 123, 184, 0.3);
+  font-size: clamp(3rem, 8vw, 5rem);
+  text-shadow: 0 0 24px rgba(255, 123, 184, 0.45);
+  animation: drift 7s ease-in-out infinite alternate;
 }
 
 .card-back {
@@ -1544,6 +1602,15 @@ h1 {
   100% {
     transform: translateY(14px) scale(0.96);
     opacity: 0.78;
+  }
+}
+
+@keyframes flowerSway {
+  from {
+    transform: translateY(0) rotate(-8deg) scale(0.94);
+  }
+  to {
+    transform: translateY(-7px) rotate(8deg) scale(1.06);
   }
 }
 
